@@ -20,7 +20,11 @@ router.get('/:id', async (req, res) => {
     // be sure to include its associated Product data
     console.log('tag get by id route hit');
     try {
-        const id_tag = await Tag.findByPk(req.params.id);
+        const id_tag = await Tag.findOne({
+            where: { id: req.params.id },
+            include: Product,
+        });
+        console.log(id_tag);
         res.send(id_tag);
     } catch (err) {
         res.send(err);
