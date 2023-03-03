@@ -25,7 +25,12 @@ router.get('/:id', async (req, res) => {
             include: Product,
         });
         console.log(id_tag);
-        res.send(id_tag);
+        if (id_tag !== null) {
+            res.send(id_tag);
+        }
+        res.status(404).send({
+            message: `couldnt find tag with id of ${req.params.id}`,
+        });
     } catch (err) {
         res.send(err);
     }
@@ -65,10 +70,14 @@ router.delete('/:id', async (req, res) => {
     // delete on tag by its `id` value
     console.log('tag delete route hit');
     try {
-        const deleteTag = await Tag.destroy({ where: { id: req.params.id } });
-        res.send({ message: 'tag deleted' });
+        const deleteTag = await Tag.findByPk(req.params.id);
+        await Tag.destroy({ where: { id: req.params.id } });
+        res.send({ message: `${deleteTag.tag_name} deleted from tags` });
     } catch (err) {
-        res.send({ message: 'tag couldnt be deleted', error: err });
+        res.send({
+            message: `tag with id ${req.params.id} couldnt be deleted`,
+            error: err,
+        });
     }
 });
 
