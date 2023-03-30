@@ -24,10 +24,11 @@ router.get('/:id', async (req, res) => {
         });
         if (id_cat !== null) {
             res.send(id_cat);
+        } else {
+            res.status(404).send({
+                message: `couldnt find a category with id of ${req.params.id}`,
+            });
         }
-        res.status(404).send({
-            message: `couldnt find a category with id of ${req.params.id}`,
-        });
     } catch (err) {
         res.send({ message: 'couldnt get categories by id', error: err });
     }
@@ -39,7 +40,7 @@ router.post('/', async (req, res) => {
         const new_cat = await Category.create({
             category_name: req.body.category_name,
         });
-        res.send(new_cat);
+        res.status(200).send(new_cat);
     } catch (err) {
         res.status(500).send({
             message: `couldnt create category ${req.body.category_name}`,

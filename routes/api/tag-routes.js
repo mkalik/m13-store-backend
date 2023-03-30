@@ -27,10 +27,11 @@ router.get('/:id', async (req, res) => {
         console.log(id_tag);
         if (id_tag !== null) {
             res.send(id_tag);
+        } else {
+            res.status(404).send({
+                message: `couldnt find tag with id of ${req.params.id}`,
+            });
         }
-        res.status(404).send({
-            message: `couldnt find tag with id of ${req.params.id}`,
-        });
     } catch (err) {
         res.send(err);
     }

@@ -4,21 +4,21 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Table of Contents:
 [description](#desc)
-    
+
 [Installation](#1)
-    
+
 [Usage](#2)
-    
+
 [Credits](#3)
-    
+
 [License](#4)
-    
+
 [Contributing](#5)
-    
+
 [Tests](#6)
-    
+
 [Questions](#7)
-    
+
 # <a name='desc'></a>
 ## 0.Description:
 a functional backend for an online store
@@ -32,17 +32,17 @@ just clone this repo and you should be good to go.
 youre going to need to use insomnia if you want to test the application as there isnt a frontend. All dependencies required to run the actual server can be found in the package.json
 
 in order to install them run:
-        
+
         npm i
 
 you can find insomnia [here](https://insomnia.rest/download)
 
 
-[usage video](will add soon)
+[usage video](https://youtu.be/29ydKFHLaCw)
 
 # <a name='3'></a>
 ## 3.Credits:
-mkalik | also had some starter code which can be found [here](https://github.com/coding-boot-camp/fantastic-umbrella) 
+mkalik | also had some starter code which can be found [here](https://github.com/coding-boot-camp/fantastic-umbrella)
 # <a name='4'></a>
 ## 4.License:
 https://opensource.org/licenses/MIT
